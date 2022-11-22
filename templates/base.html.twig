@@ -48,32 +48,29 @@
                 </a>
 
                 <ul class-"nav nav-pills">
-               
-                    
-                   
+
                     {% if not is_granted ('IS_AUTHENTICATED_FULLY') %}
-                    <li class="nav-item- list-unstyled d-flex ">
-                        <a class="nav-link link-right text-white " href="{{ path('register') }}">S'inscrire</a>
-                        
+                        <li class="nav-item- list-unstyled d-flex ">
+                            <a class="nav-link link-right text-white " href="{{ path('register') }}">S'inscrire</a>
                         </li>
 
                         <li class="nav-item list-unstyled">
-                        <a class="nav-link text-white-mr-4" href="{{ path('login') }}">Se connecter</a>
+                            <a class="nav-link text-white-mr-4" href="{{ path('login') }}">Se connecter</a>
                         </li>
                         {% else %}
                             <div class="dropdown">
-                            <a  class="nav nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ app.user.username|capitalize}}
-                            </a>
-                            <ul class ="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" href="{{ path('app_profile', { username: app.user.username}) }}">Mon Profil</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{ path('logout') }}">Se Déconnecter</a>
-                                </li>
+                                 <a  class="nav nav-link text-white dropdown-toggle" href="" role="button"  data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ app.user.username|capitalize}}
+                                </a>
+                                <ul class ="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="{{ path('app_profile', { username: app.user.username}) }}">Mon Profil</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ path('logout') }}">Se Déconnecter</a>
+                                    </li>
                             
-                            </ul>
+                                </ul>
                             
                             </div>
                     {% endif %} 
